@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TypeRush — Typing Challenge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="TypeRush home"><span class="brand-mark">T</span> TypeRush</a>
+      <span class="top-note">WEB TECHNOLOGIES · LAB MID</span>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen">
+        <div class="hero">
+          <p class="eyebrow">TRAIN YOUR REFLEXES</p>
+          <h1>Make every<br><span>keystroke count.</span></h1>
+          <p class="hero-copy">Two fast-paced typing challenges. Choose your mode, set your difficulty, and improve your keyboard precision.</p>
+          <div class="settings-row">
+            <label>DIFFICULTY
+              <select id="difficultySelect">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="mode-grid">
+          <article class="mode-card bubbles-card">
+            <div class="mode-icon">◉</div>
+            <p class="card-tag">MODE A</p>
+            <h2>Bubbles</h2>
+            <p>Recognize letters quickly. Match the key before each bubble escapes.</p>
+            <ul><li>Moving letter bubbles</li><li>Score and miss tracking</li><li>Speed increases over time</li></ul>
+            <button class="primary-btn" data-mode="bubbles">Play Bubbles <span>→</span></button>
+          </article>
+          <article class="mode-card magnet-card">
+            <div class="mode-icon">⌘</div>
+            <p class="card-tag">MODE B</p>
+            <h2>KeyMagnet</h2>
+            <p>Find the target key on the keyboard and respond with accuracy.</p>
+            <ul><li>Visible keyboard panel</li><li>Response-time tracking</li><li>Choose a practice key set</li></ul>
+            <button class="primary-btn" data-mode="magnet">Play KeyMagnet <span>→</span></button>
+          </article>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen hidden">
+        <div class="game-heading">
+          <button id="homeBtn" class="back-btn">← Home</button>
+          <div><p class="eyebrow" id="modeEyebrow">MODE A</p><h1 id="gameTitle">Bubbles</h1></div>
+          <div class="game-actions"><button id="restartBtn" class="secondary-btn">Restart</button><button id="resetBtn" class="secondary-btn">Reset</button></div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <div id="bubblesPanel" class="play-panel hidden">
+          <div class="panel-top"><div><span class="live-dot"></span> LIVE ARENA</div><span id="bubbleHint">Press the matching letter to pop a bubble</span></div>
+          <div id="bubbleArena" class="bubble-arena">
+            <div class="arena-start" id="bubbleStart">
+              <div class="big-symbol">◉</div><h2>Ready to pop?</h2>
+              <p>Use your keyboard to match the letters floating upward.</p>
+              <button id="startBubblesBtn" class="primary-btn">Start Game →</button>
+            </div>
+            <div class="arena-feedback" id="bubbleFeedback"></div>
+          </div>
+          <div class="panel-footer"><span>KEYBOARD INPUT <b>ON</b></span><span id="bubbleStatus">Waiting to start</span></div>
+        </div>
+
+        <div id="magnetPanel" class="play-panel hidden">
+          <div class="panel-top"><div><span class="live-dot"></span> PRECISION TRAINING</div><span>Press the target key on your keyboard</span></div>
+          <div class="magnet-content">
+            <div class="target-area">
+              <p class="eyebrow">YOUR TARGET KEY</p>
+              <div id="targetKey" class="target-key">A</div>
+              <p id="targetPrompt">Press the highlighted key</p>
+              <div id="magnetFeedback" class="magnet-feedback">Choose Start to begin</div>
+              <button id="startMagnetBtn" class="primary-btn">Start Training →</button>
+            </div>
+            <div class="keyboard-wrap">
+              <div class="keyboard-label">KEYBOARD · <span id="keySetLabel">HOME ROW</span></div>
+              <div id="keyboard" class="keyboard"></div>
+              <div class="keyset-control">
+                <label>Practice set
+                  <select id="keySetSelect">
+                    <option value="home">Home row (A S D F J K L)</option>
+                    <option value="top">Top row (Q W E R U I O P)</option>
+                    <option value="mixed">Mixed letters</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer"><span>KEYBOARD INPUT <b>ON</b></span><span id="magnetStatus">Waiting to start</span></div>
+        </div>
+
+        <section id="resultsPanel" class="results-panel hidden">
+          <p class="eyebrow">SESSION COMPLETE</p><h2 id="resultTitle">Great work.</h2>
+          <p id="resultMessage">Here are your results.</p>
+          <div id="resultStats" class="result-stats"></div>
+          <button id="playAgainBtn" class="primary-btn">Play Again →</button>
+          <button id="resultsHomeBtn" class="secondary-btn">Back to Home</button>
+        </section>
+      </section>
+    </main>
+    <footer>TYPE RUSH <span>·</span> PRACTICE MAKES PRECISION</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
